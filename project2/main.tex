@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}%
+
+%============================================================================
+% Assignment Information
+
+\def\assignmentName { Project 2 - Website Analysis                      }
+\def\className      { CSE 321: Internet and Web Programming             }
+\def\studentName    { Noah Schoonover \\ Myles Willis \\ Adam Schmidt   }
+\def\studentEmail   {  }
+\def\dueDate        { August 26, 2021                                   }
+\def\semesterDate   { Fall 2021                                         }
+
+%============================================================================
+% Packages
+
+\usepackage{tabularx, makecell}
+\usepackage{setspace}
+\usepackage[shortlabels]{enumitem}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\usepackage{minted}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{float, graphicx}
+\usepackage[bottom]{footmisc}
+
+%============================================================================
+% User Defined Commands
+
+\newcommand{\itemAt}[1]{\setcounter{enumi}{#1 - 1}\item}
+\newcommand{\ntab}{\hspace*{1cm}}
+
+%============================================================================
+% Headers and Document Setup
+
+\doublespacing
+
+%============================================================================
+\begin{document}
+%============================================================================
+
+%---------------------------------------------------------------------
+% Title
+
+\begin{singlespace}
+\title{ \assignmentName }
+\author{ \studentName \\ {\small \studentEmail} \\ {\it \className}}
+\date{\dueDate (\semesterDate)}
+\maketitle
+\end{singlespace}
+
+%---------------------------------------------------------------------
+% Document
+
+
+\begin{itemize}
+    \item Theme
+    \item Group Name
+    \item Group Members
+\end{itemize}
+
+\begin{enumerate}
+
+    \item Background
+    \item Website Analysis
+        \begin{enumerate}
+            \item 
+            \item 
+            \item \hspace{1cm} \\
+            \begin{tabular}{|l|l|l|l|l|l|l|}
+                \hline
+                 & Proposed System & System 1 & System 2 & System 3 & System 4 & System 5 \\
+                 \hline
+                Function 1 & \\
+                Function 2 & \\
+                Function 3 & \\
+                Function 4 & \\
+                 \hline
+            \end{tabular}
+        \end{enumerate}
+
+    
+\end{enumerate}
+
+%============================================================================
+\end{document}
+%============================================================================
