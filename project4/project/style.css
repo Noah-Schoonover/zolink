@@ -2,6 +2,7 @@ body {
     margin: 0 auto;
     max-width: 850px;
     padding: 10px;
+	background-color: #dbdbdb;
 }
 
 header {
@@ -43,6 +44,7 @@ section {
     overflow: auto;
     border-radius: 3px;
     margin-bottom: 15px;
+	background-color: white;
 }
 
 ul {
@@ -84,6 +86,11 @@ section section {
 footer {
     color: gray;
     margin: 20px 0px 20px 0px;
+}
+
+footer a, footer a:visited {
+	text-decoration: none;
+	color: gray;
 }
 
 #footer_name_left {
