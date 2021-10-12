@@ -2,6 +2,7 @@ body {
     margin: 0 auto;
     max-width: 850px;
     padding: 10px;
+	background-color: #dbdbdb;
 }
 
 header {
@@ -40,8 +41,10 @@ nav ul li a {
 
 section {
     border: 1px solid #2d82eb;
+    overflow: auto;
     border-radius: 3px;
     margin-bottom: 15px;
+	background-color: white;
 }
 
 ul {
@@ -69,8 +72,15 @@ section section {
 }
 
 #profile_picture {
-    float: right;
+    float: left;
+    width: 180px;
     border-radius: 3px;
+}
+
+.developer_information_section {
+    float: left;
+    padding-left: 20px;
+    line-height: 2.5em;
 }
 
 footer {
@@ -78,16 +88,21 @@ footer {
     margin: 20px 0px 20px 0px;
 }
 
-#footer_name {
+footer a, footer a:visited {
+	text-decoration: none;
+	color: gray;
+}
+
+#footer_name_left {
     float: left;
 }
 
-#footer_email {
+#footer_name_center {
     margin: 0 auto;
     width: 120px;
     text-align: center;
 }
 
-#footer_phone {
+#footer_name_right {
     float: right;
 }
