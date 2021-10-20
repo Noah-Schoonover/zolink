@@ -24,18 +24,11 @@ a:hover {
  * Base structure
  */
 
-html,
 body {
-  height: 100%;
-  background-color: #66456e;
-}
-
-body {
-  display: -ms-flexbox;
-  display: flex;
+  background-color: #3e2145;
   color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .7);
+  height: 200vh;
 }
 
 .cover-container {
@@ -185,5 +178,3 @@ body {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
-
-
