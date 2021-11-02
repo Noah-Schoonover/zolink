@@ -246,13 +246,89 @@ information you want all at once?
 \begin{enumerate}[4.a.]
     \item ER Diagram\\
      - Prolog explaining what is the purpose of this section.\\
-     - The ER Diagram
-    
+     - The ER Diagram\\
+     \includegraphics[width=\linewidth]{er.png}
     \item Table Design.\\
     In each table, you should describe following information with bullets or tables:\\
  - The fields information for each table with comments\\
  - Briefly describe why you design the table, such as why you design this field as VARCHAR.\\
  - If this table has foreign key, please describe the relation between this table and other tables.\\
+    \footnotesize
+    \singlespacing
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{8}{|l|}{\bf user}\\
+        \hline
+        \hline
+        \thead{Primary\\Key} & \thead{Field\\Name} & \thead{Data\\Type} & \thead{Not\\Null} & Unique & Binary & \thead{Foreign\\Key} & Comments \\
+        \hline
+        \checkmark & user\_id & int & \checkmark & \checkmark & & & \makecell{Automatically incremented\\for each new user.}\\
+        \hline
+         & email & varchar(255) & \checkmark & \checkmark & & & \makecell{Used to log on.}\\
+        \hline
+        & password & varchar(255) & \checkmark & & & & \makecell{Used to log on, hashed.}\\
+        \hline
+    \end{tabular}
+    
+    \vspace{1cm}
+    
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{8}{|l|}{{\bf card} \ntab\ntab {\it one-to-many relationship with user}}\\
+        \hline
+        \hline
+        \thead{Primary\\Key} & \thead{Field\\Name} & \thead{Data\\Type} & \thead{Not\\Null} & Unique & Binary & \thead{Foreign\\Key} & Comments \\
+        \hline
+        \checkmark & card\_id & varchar(8) & \checkmark & \checkmark & & & \makecell{Automatically incremented\\for each new card.}\\
+        \hline
+         & user\_id & int & \checkmark & & & \checkmark & \makecell{Identify which user\\owns each card.}\\
+        \hline
+         & name & varchar(50) & & & & & \makecell{Allows the user\\to name each card.}\\
+        \hline
+         & private & tinyint & \checkmark & & & & \makecell{0 = public\\1 = private}\\
+        \hline
+        & profile\_img & varchar(255) & & & & & \makecell{Path to user-uploaded\\profile image.}\\
+        \hline
+        & qr\_img & varchar(255) & \checkmark & \checkmark & & & \makecell{Path to unique QR\\image linked to card.}\\
+        \hline
+    \end{tabular}
+    
+        \vspace{1cm}
+    
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{8}{|l|}{{\bf info} \ntab\ntab {\it one-to-many relationship with card}}\\
+        \multicolumn{8}{|l|}{\ntab\ntab\ntab {\it one-to-one relationship with info\_type}}\\
+        \hline
+        \hline
+        \thead{Primary\\Key} & \thead{Field\\Name} & \thead{Data\\Type} & \thead{Not\\Null} & Unique & Binary & \thead{Foreign\\Key} & Comments \\
+        \hline
+        \checkmark & info\_id & int & \checkmark & \checkmark & & & \makecell{Automatically incremented\\for each new info entry.}\\
+        \hline
+         & card\_id & varchar(8) & \checkmark & & & \checkmark & \makecell{Identify which card\\each entry goes with.}\\
+        \hline
+         & type\_id & int & \checkmark & & & \checkmark & \makecell{Assigns info type\\from info\_type table.}\\
+        \hline
+        & data & varchar(1024) & \checkmark & & & & \makecell{User-entered info data.}\\
+        \hline
+        & order & int & \checkmark & & & & \makecell{Allow user to choose\\ordering of card info.}\\
+        \hline
+    \end{tabular}
+    
+    \vspace{1cm}
+    
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{8}{|l|}{{\bf info\_type}}\\
+        \hline
+        \hline
+        \thead{Primary\\Key} & \thead{Field\\Name} & \thead{Data\\Type} & \thead{Not\\Null} & Unique & Binary & \thead{Foreign\\Key} & Comments \\
+        \hline
+        \checkmark & type\_id & int & \checkmark & \checkmark & & & \makecell{Automatically incremented\\for each new info type.}\\
+        \hline
+         & type & varchar(45) & \checkmark & \checkmark & & & \makecell{Name of the info type\\e.g. "email", "phone".}\\
+        \hline
+    \end{tabular}
     
     
 \end{enumerate}
