@@ -68,4 +68,5 @@
     nbproject/build-impl.xml file. 
 
     -->
+	<property name="endorsed.classpath.cmd.line.arg" value="--patch-module  java.base='${toString:endorsed.classpath.path}'"/>
 </project>
