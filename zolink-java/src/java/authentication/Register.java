@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author noah
  */
-@WebServlet(name = "Authenticate", urlPatterns = {"/Authenticate"})
-public class Authenticate extends HttpServlet {
+@WebServlet(name = "Register", urlPatterns = {"/Register"})
+public class Register extends HttpServlet {
 
 	private UserAuth UserAuth;
 
@@ -76,8 +76,8 @@ public class Authenticate extends HttpServlet {
 
 		try {
 
-			User user = userAuth.authenticate(email, password);
-			String forward_url = "/login.jsp";
+			User user = userAuth.register(email, password);
+			String forward_url = "/register.jsp";
 
 			if (user != null) {
 				HttpSession session = request.getSession();
@@ -85,9 +85,9 @@ public class Authenticate extends HttpServlet {
                 forward_url = "/cards/";
 
 				response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
-				
+
 			} else {
-				String message = "Invalid email or password.";
+				String message = "Email address already in use.";
 				request.setAttribute("message", message);
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
