@@ -46,11 +46,30 @@
                                
                                     <form><input type="text" placeholder="Name">
                                 </h5>
-                            
-                                <input class="list-group-item" type="text" placeholder="Enter some info">
-                                <input class="list-group-item" type="text" placeholder="Enter some info">
-                                <input class="list-group-item" type="text" placeholder="Enter some info">
-                                <input class="list-group-item" type="text" placeholder="Enter some info">                                 
+                                <li class="list-group-item">
+                                    <input type="text" placeholder="Enter some info">
+                                    <a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="assets/dash-circle.svg"></a>
+                                    <!--<a href="#" class="btn btn-primary mt-4">-</a>-->
+                                </li>
+                                <li class="list-group-item">
+                                    <input type="text" placeholder="Enter some info">
+                                    <a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="assets/dash-circle.svg"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <input type="text" placeholder="Enter some info">
+                                    <a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="assets/dash-circle.svg"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <input type="text" placeholder="Enter some info">
+                                    <a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="assets/dash-circle.svg"></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <input type="text" placeholder="Enter some info" size="24">
+                                  
+                                </li>
+                                
+                                
+                                                               
                             </form>
 
 			</div>
