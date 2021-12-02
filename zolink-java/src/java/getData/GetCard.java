@@ -5,6 +5,8 @@
  */
 package getData;
 
+import bean.Card;
+import bean.Info;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -60,13 +64,15 @@ public class GetCard extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String domain, driver, dbURL, username, password;
+		String domain, driver, dbURL, username, password, forward_url;
+
+		System.out.println("debug 1");
 
 		boolean LOCAL = false;
 		if (LOCAL) {
 			domain = "*";
 			driver = "com.mysql.cj.jdbc.Driver";
-			dbURL = "jdbc:mysql://localhost:3306/hw5";
+			dbURL = "jdbc:mysql://localhost:3306/zolink";
 			username = "root";
 			password = "Jinkooo!000";
 		} else {
@@ -85,37 +91,48 @@ public class GetCard extends HttpServlet {
 			Class.forName(driver);
 			Connection connection = DriverManager.getConnection(dbURL, username, password);
 
+			String card_id = "1";
+
 			// query the database
 			Statement statement = connection.createStatement();
-			String myQuery = "SELECT * FROM card WHERE card_id = 1;";
+			String myQuery = "SELECT * FROM card WHERE card_id = " + card_id + ";";
 			ResultSet rs = statement.executeQuery(myQuery);
 
 			Statement statement2 = connection.createStatement();
-			String myQuery2 = "SELECT * FROM info WHERE card_id = 1 ORDER BY info_order";
+			String myQuery2 = "SELECT * FROM info WHERE card_id = " + card_id
+					+ " ORDER BY info_order;";
 			ResultSet rs2 = null;
-
-			response.setContentType("text/xml;charset=UTF-8");
-			out.println("<?xml version=\"1.0\"?>");
-			out.println("<card>");
 
 			// process results
 			if (rs.next()) {
-				out.println("<card_id>" + rs.getString("card_id") + "</card_id>");
-				out.println("<user_id>" + rs.getString("user_id") + "</user_id>");
-				out.println("<name>" + rs.getString("name") + "</name>");
-				out.println("<private>" + rs.getString("private") + "</private>");
+				System.out.println("debug 2");
+				Card card = new Card();
+				card.setId(rs.getString("card_id"));
+				card.setUser_id(rs.getString("user_id"));
+				card.setName(rs.getString("name"));
+				card.setPrivate_card(rs.getInt("private"));
 
 				rs2 = statement2.executeQuery(myQuery2);
 				while(rs2.next()) {
-					out.println("<info>");
-					out.println("<info_type>" + rs2.getString("info_type") + "</info_type>");
-					out.println("<data>" + rs2.getString("data") + "</data>");
-					out.println("<info_order>" + rs2.getString("info_order") + "</info_order>");
-					out.println("</info>");
-				}
-			}
+					Info info = new Info();
 
-			out.println("</card>");
+					info.setId(rs2.getString("info_id"));
+					info.setCard_id(rs2.getString("card_id"));
+					info.setType(rs2.getString("info_type"));
+					info.setData(rs2.getString("data"));
+					info.setOrder(rs2.getInt("info_order"));
+
+					card.addInfo(info);
+				}
+
+				HttpSession session = request.getSession();
+				session.setAttribute("card", card);
+				session.setAttribute("testAttr", "testing attribute");
+				forward_url = "/card/index.jsp";
+
+			} else {
+				forward_url = "/cardNotFound/";	
+			}
 
 			// close the connection
 			rs.close();
@@ -123,6 +140,10 @@ public class GetCard extends HttpServlet {
 			statement.close();
 			statement2.close();
 			connection.close();
+
+//			RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
+//			dispatcher.forward(request, response);
+			response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
 
 		} catch (ClassNotFoundException ex) {
 			response.setContentType("text/plain;charset=UTF-8");

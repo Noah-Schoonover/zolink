@@ -15,6 +15,8 @@
 
   <body>
 
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
     <main>
       <div class="container py-4 text-center">
 
@@ -35,23 +37,28 @@
         </header>
 
         <div class="card mx-auto text-center" style="width: 25rem;">
-          <img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
+			<p>name: ${card.name}; id: ${card.id}; user: ${card.user_id}; private: ${card.private_card}</p>
+			<img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
 
-          <div class="card-body">
-            <h5 class="card-title">Myles Willis</h5>
+			<div class="card-body">
+			  <h5 class="card-title">Myles Willis</h5>
 
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">555-555-5555</li>
-              <li class="list-group-item">myles.willis@student.nmt.edu</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
+			  <ul class="list-group list-group-flush">
+				  <li class="list-group-item">555-555-5555</li>
+				  <li class="list-group-item">myles.willis@student.nmt.edu</li>
+				  <li class="list-group-item">Morbi leo risus</li>
+				  <li class="list-group-item">Porta ac consectetur ac</li>
+				  <li class="list-group-item">test: ${testAttr}</li>
 
-          </div>
+				  <c:forEach var="info" items="${card.info}">
+					  <li class="list-group-item">${info.data}</li>
+				  </c:forEach>
+			  </ul>
 
-        </div>
-        <a href="#" class="btn btn-primary mt-4">QR Code</a>
+			</div>
+
+			</div>
+			<a href="#" class="btn btn-primary mt-4">QR Code</a>
 
       </div>
     </main>
