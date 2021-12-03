@@ -58,7 +58,7 @@ public class Dispatcher implements Filter {
 					HttpServletRequest httpReq = (HttpServletRequest) request;
 					HttpSession session = httpReq.getSession();
 					session.setAttribute("code", code);
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/GetCard");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/ServeCard");
 					dispatcher.forward(request, response);
 
 				} else {

@@ -9,7 +9,9 @@ package authentication;
  *
  * @author noah
  */
+import bean.Card;
 import bean.User;
+import getData.CardGetter;
 import java.sql.*;
 
 public class UserAuth {
@@ -52,6 +54,24 @@ public class UserAuth {
 			user.setId(rs.getInt("user_id"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
+
+			// add user cards to user object
+
+			String sql2 = "SELECT * FROM card WHERE user_id = ?";
+			PreparedStatement statement2 = connection.prepareStatement(sql2);
+			statement2.setString(1, rs.getString("user_id"));
+
+			ResultSet rs2 = statement2.executeQuery();
+
+			CardGetter cardGetter = new CardGetter();
+
+			while (rs2.next()) {
+
+				Card card = cardGetter.getCardById(rs2.getString("card_id"));
+				user.getCards().add(card);
+				
+			}
+
 		}
 
 		rs.close();

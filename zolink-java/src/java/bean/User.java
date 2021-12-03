@@ -13,10 +13,11 @@ public class User implements Serializable {
 	private int id = 0;
 	private String email = "";
 	private String password = "";
+	private ArrayList<Card> cards;
 
 	// Zero-Argument Constructor
     public User() {
-
+		cards = new ArrayList<Card>();
     }
 
 	// Getters
@@ -33,6 +34,10 @@ public class User implements Serializable {
 		return password;
 	}
 
+	public ArrayList<Card> getCards() {
+		return cards;
+	}
+
 	// Setters
 	public void setId(int id) {
 		this.id = id;
@@ -44,6 +49,10 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setCards(ArrayList<Card> cards) {
+		this.cards = cards;
 	}
 
 }

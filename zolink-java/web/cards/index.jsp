@@ -37,7 +37,7 @@
         <div class="card mx-auto text-center" style="width: 25rem;">           
             <div class="row row-no-gutters" style="height: 130px">
                 <div class="col-sm">
-                    <img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
+                    <img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
                 </div>
                 <div class="col-sm">
                     <div class="card-title"><h5>Myles Willis</h5></div>
@@ -48,7 +48,7 @@
         <div class="card mx-auto text-center" style="width: 25rem;">           
             <div class="row row-no-gutters" style="height: 130px">
                 <div class="col-sm">
-                    <img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
+                    <img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
                 </div>
                 <div class="col-sm">
                     <div class="card-title"><h5>Noah Schoonover</h5></div>
@@ -59,7 +59,7 @@
         <div class="card mx-auto text-center" style="width: 25rem;">           
             <div class="row row-no-gutters" style="height: 130px">
                 <div class="col-sm">
-                    <img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
+                    <img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
                 </div>
                 <div class="col-sm">
                     <div class="card-title"><h5>Adam Schmidt</h5></div>

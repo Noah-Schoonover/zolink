@@ -17,6 +17,10 @@
         <url-pattern>/*</url-pattern>
         <!-- either url-pattern or servlet-name is mandatory -->
     </filter-mapping>
+    <servlet>
+        <servlet-name>ServeCard</servlet-name>
+        <servlet-class>getData.ServeCard</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authenticate</servlet-name>
         <url-pattern>/Authenticate</url-pattern>
@@ -33,15 +37,16 @@
         <servlet-name>MyCards</servlet-name>
         <url-pattern>/MyCards</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServeCard</servlet-name>
+        <url-pattern>/ServeCard</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <servlet>
-        <servlet-name>GetCard</servlet-name>
-        <servlet-class>getData.GetCard</servlet-class>
-    </servlet>
+    
     <servlet>
         <servlet-name>Authenticate</servlet-name>
         <servlet-class>authentication.Authenticate</servlet-class>
@@ -58,8 +63,5 @@
         <servlet-name>MyCards</servlet-name>
         <servlet-class>getData.MyCards</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>GetCard</servlet-name>
-        <url-pattern>/GetCard</url-pattern>
-    </servlet-mapping>
+
 </web-app>

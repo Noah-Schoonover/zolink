@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author noah
  */
-@WebServlet(name = "GetCard", urlPatterns = {"/GetCard"})
-public class GetCard extends HttpServlet {
+@WebServlet(name = "ServeCard", urlPatterns = {"/ServeCard"})
+public class ServeCard extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -64,90 +64,30 @@ public class GetCard extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String domain, driver, dbURL, username, password, forward_url;
-
-		System.out.println("debug 1");
+		String forward_url;
 
 		HttpSession session = request.getSession();
 		String code = (String) session.getAttribute("code");
 
-		boolean LOCAL = false;
-		if (LOCAL) {
-			domain = "*";
-			driver = "com.mysql.cj.jdbc.Driver";
-			dbURL = "jdbc:mysql://localhost:3306/zolink";
-			username = "root";
-			password = "Jinkooo!000";
-		} else {
-			domain = "https://www.cs.nmt.edu";
-			driver = "org.mariadb.jdbc.Driver";
-			dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
-			username = "apollo14";
-			password = "DSLgang";
-		}
+		CardGetter cardGetter = new CardGetter();
 
-		response.setHeader("Access-Control-Allow-Origin", domain);
 		PrintWriter out = response.getWriter();
 
 		response.setContentType("text/plain;charset=UTF-8");
 
 		try {
-			// establish a connection
-			Class.forName(driver);
-			Connection connection = DriverManager.getConnection(dbURL, username, password);
 
-			// query the database
+			Card card = cardGetter.getCardByCode(code);
 
-			String sqlQuery = "SELECT * FROM card WHERE code = ?;";
-			PreparedStatement statement = connection.prepareStatement(sqlQuery);
-			statement.setString(1, code);
-			ResultSet rs = statement.executeQuery();
-
-			// process results
-			if (rs.next()) {
-
-				String card_id = rs.getString("card_id");
-
-				System.out.println("debug 2");
-				Card card = new Card();
-				card.setId(rs.getString("card_id"));
-				card.setUser_id(rs.getString("user_id"));
-				card.setCard_name(rs.getString("card_name"));
-				card.setName(rs.getString("name"));
-				card.setPrivate_card(rs.getInt("private"));
-
-				String myQuery2 = "SELECT * FROM info WHERE card_id = ? ORDER BY info_order;";
-				PreparedStatement statement2 = connection.prepareStatement(myQuery2);
-				statement2.setString(1, card_id);
-				ResultSet rs2 = statement2.executeQuery();
-				
-				while(rs2.next()) {
-					Info info = new Info();
-
-					info.setId(rs2.getString("info_id"));
-					info.setCard_id(rs2.getString("card_id"));
-					info.setType(rs2.getString("info_type"));
-					info.setData(rs2.getString("data"));
-					info.setOrder(rs2.getInt("info_order"));
-
-					card.addInfo(info);
-				}
-
-				rs2.close();
-				statement2.close();
-
+			if (card != null) {
+			
 				session.setAttribute("card", card);
 				session.setAttribute("testAttr", "testing attribute");
 				forward_url = "/card/card.jsp";
 
 			} else {
-				forward_url = "/cardNotFound/";	
+				forward_url = "/cardNotFound/";
 			}
-
-			// close the connection
-			rs.close();
-			statement.close();
-			connection.close();
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
 			dispatcher.forward(request, response);
@@ -162,7 +102,7 @@ public class GetCard extends HttpServlet {
 			out.println("SQLState: " + ex.getSQLState());
 			out.println("VendorError: " + ex.getErrorCode());
 		}
-		
+
 	}
 
 	/**
