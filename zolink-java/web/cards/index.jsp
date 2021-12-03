@@ -33,39 +33,23 @@
           </header>
         </div>
 
+		<c:if test="${user != null}">
+			<c:forEach var="card" items="${user.cards}">
+				<a href="/apollo14/zolink/${card.code}">
+					<div class="card mx-auto text-center" style="width: 25rem;">
+						<div class="row row-no-gutters" style="height: 130px">
+							<div class="col-sm">
+								<img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
+							</div>
+							<div class="col-sm">
+								<div class="card-title"><h5>${card.card_name}</h5></div>
+							</div>
+						</div>
+					</div>
+				</a>
 
-        <div class="card mx-auto text-center" style="width: 25rem;">           
-            <div class="row row-no-gutters" style="height: 130px">
-                <div class="col-sm">
-                    <img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
-                </div>
-                <div class="col-sm">
-                    <div class="card-title"><h5>Myles Willis</h5></div>
-                </div>
-            </div>
-        </div>
-          
-        <div class="card mx-auto text-center" style="width: 25rem;">           
-            <div class="row row-no-gutters" style="height: 130px">
-                <div class="col-sm">
-                    <img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
-                </div>
-                <div class="col-sm">
-                    <div class="card-title"><h5>Noah Schoonover</h5></div>
-                </div>
-            </div>
-        </div>
-          
-        <div class="card mx-auto text-center" style="width: 25rem;">           
-            <div class="row row-no-gutters" style="height: 130px">
-                <div class="col-sm">
-                    <img class="profile-image" src="/apollo14/zolink/cards/assets/blank_profile_image.png" alt="Profile Image">
-                </div>
-                <div class="col-sm">
-                    <div class="card-title"><h5>Adam Schmidt</h5></div>
-                </div>
-            </div>
-        </div> 
+			</c:forEach>
+		</c:if>
           
         <div class="add-card mx-auto">
           <img class="add-image" src="assets/plus-lg.svg" alt="add card">

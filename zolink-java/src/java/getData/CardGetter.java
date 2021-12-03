@@ -45,6 +45,7 @@ public class CardGetter {
 			
 			String card_id = rs.getString("card_id");
 			card.setId(rs.getString("card_id"));
+			card.setCode(rs.getString("code"));
 			card.setUser_id(rs.getString("user_id"));
 			card.setCard_name(rs.getString("card_name"));
 			card.setName(rs.getString("name"));

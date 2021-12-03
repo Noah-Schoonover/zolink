@@ -19,6 +19,10 @@
   border: .05rem solid #fff;
 }
 
+a {
+	text-decoration: none;
+}
+
 
 /*
  * Base structure

@@ -13,6 +13,7 @@ public class Card implements Serializable {
 	private String card_name;
 	private String name;
 	private String id;
+	private String code;
 	private String user_id;
 	private int private_card;
     private ArrayList<Info> info;
@@ -34,6 +35,10 @@ public class Card implements Serializable {
 
 	public String getId() {
 		return id;
+	}
+
+	public String getCode() {
+		return code;
 	}
 
 	public String getUser_id() {
@@ -62,6 +67,10 @@ public class Card implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public void setUser_id(String user_id) {
