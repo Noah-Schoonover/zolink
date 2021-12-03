@@ -38,7 +38,7 @@
 
         <div class="card mx-auto text-center" style="width: 25rem;">
 			<p>name: ${card.name}; id: ${card.id}; user: ${card.user_id}; private: ${card.private_card}</p>
-			<img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
+			<img class="profile-image" src="../cards/assets/blank_profile_image.png" alt="Profile Image">
 
 			<div class="card-body">
                             <form class="list-group list-group-flush">
