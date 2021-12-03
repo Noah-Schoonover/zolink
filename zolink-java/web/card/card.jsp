@@ -37,11 +37,11 @@
         </header>
 
         <div class="card mx-auto text-center" style="width: 25rem;">
-			<p>name: ${card.name}; id: ${card.id}; user: ${card.user_id}; private: ${card.private_card}</p>
+			<p>name: ${card.card_name}; id: ${card.id}; user: ${card.user_id}; private: ${card.private_card}</p>
 			<img class="profile-image" src="card/assets/blank_profile_image.png" alt="Profile Image">
 
 			<div class="card-body">
-			  <h5 class="card-title">Myles Willis</h5>
+			  <h5 class="card-title">${card.name}</h5>
 
 			  <ul class="list-group list-group-flush">
 				  <li class="list-group-item">555-555-5555</li>

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Card implements Serializable {
 
+	private String card_name;
 	private String name;
 	private String id;
 	private String user_id;
@@ -23,6 +24,10 @@ public class Card implements Serializable {
 
 
 	// Getters
+	public String getCard_name() {
+        return card_name;
+    }
+
     public String getName() {
         return name;
     }
@@ -47,6 +52,10 @@ public class Card implements Serializable {
     }
 
 	// Setters
+	public void setCard_name(String name) {
+		this.card_name = name;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

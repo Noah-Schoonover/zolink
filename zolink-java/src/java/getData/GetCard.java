@@ -112,6 +112,7 @@ public class GetCard extends HttpServlet {
 				Card card = new Card();
 				card.setId(rs.getString("card_id"));
 				card.setUser_id(rs.getString("user_id"));
+				card.setCard_name(rs.getString("card_name"));
 				card.setName(rs.getString("name"));
 				card.setPrivate_card(rs.getInt("private"));
 
