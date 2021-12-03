@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <servlet-mapping>
-        <servlet-name>Dispatcher</servlet-name>
-        <url-pattern>/Dispatcher</url-pattern>
-    </servlet-mapping>
+    <filter>
+		<filter-name>Dispatcher</filter-name> <!-- mandatory -->
+		<filter-class>dispatcher.Dispatcher</filter-class> <!-- mandatory -->
+		<init-param> <!-- optional -->
+			<param-name>test</param-name>
+			<param-value>testValue</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Dispatcher</filter-name> <!-- mandatory -->
+		<url-pattern>/*</url-pattern> <!-- either url-pattern or servlet-name is mandatory -->
+	 </filter-mapping>
+
     <servlet-mapping>
         <servlet-name>Authenticate</servlet-name>
         <url-pattern>/Authenticate</url-pattern>
@@ -25,10 +34,7 @@
         <servlet-name>GetCard</servlet-name>
         <servlet-class>getData.GetCard</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Dispatcher</servlet-name>
-        <servlet-class>dispatcher.Dispatcher</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>Authenticate</servlet-name>
         <servlet-class>authentication.Authenticate</servlet-class>

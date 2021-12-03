@@ -68,6 +68,9 @@ public class GetCard extends HttpServlet {
 
 		System.out.println("debug 1");
 
+		HttpSession session = request.getSession();
+		String code = (String) session.getAttribute("code");
+
 		boolean LOCAL = false;
 		if (LOCAL) {
 			domain = "*";
@@ -86,25 +89,25 @@ public class GetCard extends HttpServlet {
 		response.setHeader("Access-Control-Allow-Origin", domain);
 		PrintWriter out = response.getWriter();
 
+		response.setContentType("text/plain;charset=UTF-8");
+
 		try {
 			// establish a connection
 			Class.forName(driver);
 			Connection connection = DriverManager.getConnection(dbURL, username, password);
 
-			String card_id = "1";
-
 			// query the database
-			Statement statement = connection.createStatement();
-			String myQuery = "SELECT * FROM card WHERE card_id = " + card_id + ";";
-			ResultSet rs = statement.executeQuery(myQuery);
 
-			Statement statement2 = connection.createStatement();
-			String myQuery2 = "SELECT * FROM info WHERE card_id = " + card_id
-					+ " ORDER BY info_order;";
-			ResultSet rs2 = null;
+			String sqlQuery = "SELECT * FROM card WHERE code = ?;";
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			statement.setString(1, code);
+			ResultSet rs = statement.executeQuery();
 
 			// process results
 			if (rs.next()) {
+
+				String card_id = rs.getString("card_id");
+
 				System.out.println("debug 2");
 				Card card = new Card();
 				card.setId(rs.getString("card_id"));
@@ -112,7 +115,11 @@ public class GetCard extends HttpServlet {
 				card.setName(rs.getString("name"));
 				card.setPrivate_card(rs.getInt("private"));
 
-				rs2 = statement2.executeQuery(myQuery2);
+				String myQuery2 = "SELECT * FROM info WHERE card_id = ? ORDER BY info_order;";
+				PreparedStatement statement2 = connection.prepareStatement(myQuery2);
+				statement2.setString(1, card_id);
+				ResultSet rs2 = statement2.executeQuery();
+				
 				while(rs2.next()) {
 					Info info = new Info();
 
@@ -125,10 +132,12 @@ public class GetCard extends HttpServlet {
 					card.addInfo(info);
 				}
 
-				HttpSession session = request.getSession();
+				rs2.close();
+				statement2.close();
+
 				session.setAttribute("card", card);
 				session.setAttribute("testAttr", "testing attribute");
-				forward_url = "/card/index.jsp";
+				forward_url = "/card/card.jsp";
 
 			} else {
 				forward_url = "/cardNotFound/";	
@@ -136,14 +145,12 @@ public class GetCard extends HttpServlet {
 
 			// close the connection
 			rs.close();
-			rs2.close();
 			statement.close();
-			statement2.close();
 			connection.close();
 
-//			RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
-//			dispatcher.forward(request, response);
-			response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
+			dispatcher.forward(request, response);
+			//response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
 
 		} catch (ClassNotFoundException ex) {
 			response.setContentType("text/plain;charset=UTF-8");

@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink Card</title>
-    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="card.css" rel="stylesheet">
+    <link href="card/card.css" rel="stylesheet">
 
   </head>
 
@@ -23,11 +23,11 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5">
           <header class="masthead mb-auto">
             <div class="inner">
-              <img class="masthead-brand" width="80px" src="../assets/brand/logo-v2-zl.svg" alt="logo">
+              <img class="masthead-brand" width="80px" src="assets/brand/logo-v2-zl.svg" alt="logo">
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="#">My Cards</a>
-                <a class="nav-link" href="../account_page/index.html">Account</a>
+                <a class="nav-link" href="account_page/index.html">Account</a>
               </nav>
             </div>
           </header>
@@ -38,7 +38,7 @@
 
         <div class="card mx-auto text-center" style="width: 25rem;">
 			<p>name: ${card.name}; id: ${card.id}; user: ${card.user_id}; private: ${card.private_card}</p>
-			<img class="profile-image" src="../user_page/user_page_assets/blank_profile_image.png" alt="Profile Image">
+			<img class="profile-image" src="card/assets/blank_profile_image.png" alt="Profile Image">
 
 			<div class="card-body">
 			  <h5 class="card-title">Myles Willis</h5>
