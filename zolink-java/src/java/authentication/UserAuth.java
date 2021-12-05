@@ -11,7 +11,7 @@ package authentication;
  */
 import bean.Card;
 import bean.User;
-import getData.CardHelper;
+import card.CardHelper;
 import java.sql.*;
 
 public class UserAuth {

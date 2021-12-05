@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package getData;
+package card;
 
 import bean.Card;
 import bean.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author noah
  */
-public class EditCard extends HttpServlet {
+public class DeleteCard extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -39,10 +40,10 @@ public class EditCard extends HttpServlet {
 			out.println("<!DOCTYPE html>");
 			out.println("<html>");
 			out.println("<head>");
-			out.println("<title>Servlet AddCard</title>");
+			out.println("<title>Servlet DeleteCard</title>");
 			out.println("</head>");
 			out.println("<body>");
-			out.println("<h1>Servlet AddCard at " + request.getContextPath() + "</h1>");
+			out.println("<h1>Servlet DeleteCard at " + request.getContextPath() + "</h1>");
 			out.println("</body>");
 			out.println("</html>");
 		}
@@ -73,15 +74,15 @@ public class EditCard extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		PrintWriter out = response.getWriter();
 
-		String code = request.getParameter("edit_code");
+		String id = request.getParameter("delete_id");
 
-		if (code == null) {
+		if (id == null) {
 			throw new ServletException();
 		}
-		
+
 		HttpSession session = request.getSession();
 
 		User user = (User) session.getAttribute("user");
@@ -90,21 +91,21 @@ public class EditCard extends HttpServlet {
 			response.sendRedirect("/apollo14/zolink/login.jsp");
 			return;
 		}
-		
-		if (code.equals("new")) {
+
+		if (id.equals("new")) {
 			session.setAttribute("card", null);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/edit_card/index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("MyCards");
 			dispatcher.forward(request, response);
 			return;
 		}
 
-		CardHelper cardGetter = new CardHelper();
+		CardHelper cardHelper = new CardHelper();
 
 		Card card = null;
-		
+
 		try {
-			card = cardGetter.getCardByCode(code);
+			card = cardHelper.getCardById(id);
 		} catch (SQLException | ClassNotFoundException ex) {
 			throw new ServletException();
 		}
@@ -113,21 +114,32 @@ public class EditCard extends HttpServlet {
 			throw new ServletException();
 		}
 
-//		response.setContentType("text/plain;charset=UTF-8");
-//		out.println("code: " + code);
-//		out.println("card code: " + card.getCode());
-//		if (true) return;
-
 		// check if user owns the card
 		if (!card.getUser_id().equals(user.getId())) {
-			response.sendRedirect("/MyCards");
+			response.sendRedirect("/apollo14/zolink/MyCards");
 			return;
 		}
 
-        session.setAttribute("card", card);
+		try {
+			cardHelper.deleteCard(id);
+		} catch (SQLException | ClassNotFoundException ex) {
+			throw new ServletException();
+		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/edit_card/index.jsp");
-		dispatcher.forward(request, response);
+        session.setAttribute("card", null);
+
+		// remove the old version of the card if it is not a new card
+		ArrayList<Card> userCards = user.getCards();
+		for (int i = 0; i < userCards.size(); i++) {
+			if (userCards.get(i).getId().equals(id)) {
+				userCards.remove(i);
+				break;
+			}
+		}
+
+		session.setAttribute("user", user);
+
+		response.sendRedirect("/apollo14/zolink/MyCards");
 	}
 
 	/**
@@ -139,5 +151,5 @@ public class EditCard extends HttpServlet {
 	public String getServletInfo() {
 		return "Short description";
 	}
-	
+
 }

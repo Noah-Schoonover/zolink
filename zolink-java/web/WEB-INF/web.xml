@@ -10,15 +10,19 @@
     </filter-mapping>
     <servlet>
         <servlet-name>ServeCard</servlet-name>
-        <servlet-class>getData.ServeCard</servlet-class>
+        <servlet-class>card.ServeCard</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SaveCard</servlet-name>
-        <servlet-class>getData.SaveCard</servlet-class>
+        <servlet-class>card.SaveCard</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MyCards</servlet-name>
-        <servlet-class>getData.MyCards</servlet-class>
+        <servlet-class>card.MyCards</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCard</servlet-name>
+        <servlet-class>card.DeleteCard</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SaveCard</servlet-name>
@@ -26,7 +30,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EditCard</servlet-name>
-        <servlet-class>getData.EditCard</servlet-class>
+        <servlet-class>card.EditCard</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditCard</servlet-name>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>MyCards</servlet-name>
         <url-pattern>/MyCards</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCard</servlet-name>
+        <url-pattern>/DeleteCard</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

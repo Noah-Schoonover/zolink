@@ -91,11 +91,9 @@
 		<form class=" my-4" action="DeleteCard" method="post">
 			<c:choose>
 				<c:when test="${card != null}">
-					<input type="hidden" name="delete_code" value="${card.code}">
 					<input type="hidden" name="delete_id" value="${card.id}">
 				</c:when>
 				<c:otherwise>
-					<input type="hidden" name="delete_code" value="new">
 					<input type="hidden" name="delete_id" value="new">
 				</c:otherwise>
 			</c:choose>

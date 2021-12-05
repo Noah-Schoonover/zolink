@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package getData;
+package card;
 
 /**
  *
@@ -201,6 +201,44 @@ public class CardHelper {
 		}
 
 		return card;
+    }
+
+	public void deleteCard(String id) throws SQLException,
+            ClassNotFoundException {
+
+//		if (true) throw new SQLException();
+
+		String driver, dbURL, dbUsername, dbPassword;
+
+		driver = "org.mariadb.jdbc.Driver";
+		dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
+		dbUsername = "apollo14";
+		dbPassword = "DSLgang";
+
+		// establish a connection
+		Class.forName(driver);
+		Connection connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+
+
+		// delete card from database
+
+		String sqlDeleteCard = "DELETE FROM card WHERE card_id = ?";
+
+		PreparedStatement stDeleteCard = connection.prepareStatement(sqlDeleteCard);
+		stDeleteCard.setString(1, id);
+
+		stDeleteCard.executeUpdate();
+
+
+		// delete infos from database
+
+		String sqlDeleteInfos = "DELETE FROM info WHERE card_id = ?";
+
+		PreparedStatement stDeleteInfos = connection.prepareStatement(sqlDeleteInfos);
+		stDeleteInfos.setString(1, id);
+
+		stDeleteInfos.executeUpdate();
+
     }
 
 	public String incrementCode(String code) {

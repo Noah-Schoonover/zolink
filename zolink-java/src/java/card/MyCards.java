@@ -3,26 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package getData;
+package card;
 
-import bean.Card;
+import bean.User;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author noah
  */
-@WebServlet(name = "ServeCard", urlPatterns = {"/ServeCard"})
-public class ServeCard extends HttpServlet {
+public class MyCards extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,9 +30,21 @@ public class ServeCard extends HttpServlet {
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doPost(request, response);
+
+		HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
+		if (user == null) {
+			response.sendRedirect("/apollo14/zolink/login.jsp");
+			return;
+		}
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cards/index.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
+	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 	/**
 	 * Handles the HTTP <code>GET</code> method.
 	 *
@@ -48,8 +56,7 @@ public class ServeCard extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		doPost(request, response);
+		processRequest(request, response);
 	}
 
 	/**
@@ -63,46 +70,7 @@ public class ServeCard extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String forward_url;
-
-		HttpSession session = request.getSession();
-		String code = (String) session.getAttribute("code");
-
-		CardHelper cardGetter = new CardHelper();
-
-		PrintWriter out = response.getWriter();
-
-		response.setContentType("text/plain;charset=UTF-8");
-
-		try {
-
-			Card card = cardGetter.getCardByCode(code);
-
-			if (card != null) {
-			
-				session.setAttribute("card", card);
-				session.setAttribute("testAttr", "testing attribute");
-				forward_url = "/card/card.jsp";
-
-			} else {
-				forward_url = "/cardNotFound/";
-			}
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
-			dispatcher.forward(request, response);
-			//response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
-
-		} catch (ClassNotFoundException ex) {
-			response.setContentType("text/plain;charset=UTF-8");
-			out.println("Error with connection: " + ex);
-		} catch (SQLException ex) {
-			response.setContentType("text/plain;charset=UTF-8");
-			out.println("SQLException: " + ex.getMessage());
-			out.println("SQLState: " + ex.getSQLState());
-			out.println("VendorError: " + ex.getErrorCode());
-		}
-
+		processRequest(request, response);
 	}
 
 	/**
@@ -113,6 +81,6 @@ public class ServeCard extends HttpServlet {
 	@Override
 	public String getServletInfo() {
 		return "Short description";
-	}
+	}// </editor-fold>
 
 }
