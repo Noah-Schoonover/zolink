@@ -26,7 +26,7 @@
               <img class="masthead-brand" width="80px" src="assets/brand/logo-v2-zl.svg" alt="logo">
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link" href="cards/index.jsp">My Cards</a>
+                <a class="nav-link" href="MyCards">My Cards</a>
                 <a class="nav-link" href="account_page/index.jsp">Account</a>
               </nav>
             </div>

@@ -24,7 +24,7 @@
           <h3 class="masthead-brand">Zolink</h3>
           <nav class="nav nav-masthead justify-content-center">
 			<c:if test="${user != null}">
-				<a class="nav-link" href="../cards/index.jsp">My Cards</a>
+				<a class="nav-link" href="../MyCards">My Cards</a>
 				<a class="nav-link active" href="#">Account</a>
 			</c:if>
           </nav>

@@ -126,7 +126,7 @@ public class EditCard extends HttpServlet {
 
 		// check if user owns the card
 		if (!card.getUser_id().equals(user.getId())) {
-			response.sendRedirect("/cards/index.jsp");
+			response.sendRedirect("/MyCards");
 			return;
 		}
 

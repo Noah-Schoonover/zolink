@@ -2,20 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter>
         <filter-name>Dispatcher</filter-name>
-        <!-- mandatory -->
         <filter-class>dispatcher.Dispatcher</filter-class>
-        <!-- mandatory -->
-        <init-param>
-            <!-- optional -->
-            <param-name>test</param-name>
-            <param-value>testValue</param-value>
-        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>Dispatcher</filter-name>
-        <!-- mandatory -->
         <url-pattern>/*</url-pattern>
-        <!-- either url-pattern or servlet-name is mandatory -->
     </filter-mapping>
     <servlet>
         <servlet-name>ServeCard</servlet-name>
@@ -25,11 +16,15 @@
         <servlet-name>SaveCard</servlet-name>
         <servlet-class>getData.SaveCard</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MyCards</servlet-name>
+        <servlet-class>getData.MyCards</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SaveCard</servlet-name>
         <url-pattern>/SaveCard</url-pattern>
     </servlet-mapping>
-	<servlet>
+    <servlet>
         <servlet-name>EditCard</servlet-name>
         <servlet-class>getData.EditCard</servlet-class>
     </servlet>
@@ -50,12 +45,12 @@
         <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>MyCards</servlet-name>
-        <url-pattern>/MyCards</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ServeCard</servlet-name>
         <url-pattern>/ServeCard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyCards</servlet-name>
+        <url-pattern>/MyCards</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -73,9 +68,5 @@
     <servlet>
         <servlet-name>Register</servlet-name>
         <servlet-class>authentication.Register</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>MyCards</servlet-name>
-        <servlet-class>getData.MyCards</servlet-class>
     </servlet>
 </web-app>
