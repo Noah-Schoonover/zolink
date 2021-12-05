@@ -1,23 +1,21 @@
+var cardState = 0;
 
-function check_passwords() {
+function flip_card() {
 
-	document.getElementById('server_msg').innerHTML = '';
+	var infoUL = document.getElementById('infoUL');
+	var qrUL = document.getElementById('qrUL');
+	var btn = document.getElementById('qrBtn');
 
-	if (document.getElementById('floatingPassword').value ==
-            document.getElementById('floatingPassword2').value) {
-
-		if (document.getElementById('floatingPassword').value.length < 6 &&
-				document.getElementById('floatingPassword').value.length > 0) {
-			document.getElementById('pass_check_msg').innerHTML = '<strong>Password must be at least six characters in length.</strong>';
-			document.getElementById('submit_btn').disabled = true;
-		} else {
-			document.getElementById('submit_btn').disabled = false;
-			document.getElementById('pass_check_msg').innerHTML = '';
-		}
-
-    } else {
-        document.getElementById('submit_btn').disabled = true;
-		document.getElementById('pass_check_msg').innerHTML = '<strong>Passwords do not match.</strong>';
-    }
+	if (cardState === 0) {
+		infoUL.style.display = "none";
+		qrUL.style.display = "flex";
+		btn.innerHTML = "Info";
+		cardState = 1;
+	} else {
+		infoUL.style.display = "flex";
+		qrUL.style.display = "none";
+		btn.innerHTML = "QR Code";
+		cardState = 0;
+	}
 
 }

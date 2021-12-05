@@ -11,6 +11,9 @@
     <!-- Custom styles -->
     <link href="card/card.css" rel="stylesheet">
 
+	<script src="card/script.js"></script>
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
   </head>
 
   <body>
@@ -48,13 +51,13 @@
 			<div class="card-body">
 				<h5 class="card-title">${card.name}</h5>
 
-				<ul class="list-group list-group-flush">
+				<ul id="infoUL" class="list-group list-group-flush">
 					<c:forEach var="info" items="${card.info}">
 						<li class="list-group-item">${info.data}</li>
 					</c:forEach>
 				</ul>
 
-				<ul style="display: none" class="list-group list-group-flush">
+				<ul id="qrUL" style="display: none" class="list-group list-group-flush">
 					<li id="qrCodeContainer" class="list-group-item mx-auto d-block mt-5"></li>
 				</ul>
 
@@ -72,7 +75,7 @@
 			</div>
 
 			</div>
-			<a href="/apollo14/zolink/qr/qr.jsp" class="btn btn-primary mt-4">QR Code</a>
+			<button type="button" id="qrBtn" onclick="flip_card()" class="btn btn-primary mt-4">QR Code</button>
 
       </div>
     </main>
