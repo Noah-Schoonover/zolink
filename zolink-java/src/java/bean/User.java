@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class User implements Serializable {
 
-	private int id = 0;
+	private String id = "";
 	private String email = "";
 	private String password = "";
 	private ArrayList<Card> cards;
@@ -22,7 +22,7 @@ public class User implements Serializable {
 
 	// Getters
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -39,7 +39,7 @@ public class User implements Serializable {
 	}
 
 	// Setters
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

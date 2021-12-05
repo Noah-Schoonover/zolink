@@ -68,7 +68,7 @@ public class Authenticate extends HttpServlet {
 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-
+		
 		UserAuth userAuth = new UserAuth();
 
 		response.setHeader("Access-Control-Allow-Origin", "https://www.cs.nmt.edu");

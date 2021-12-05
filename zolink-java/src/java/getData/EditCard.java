@@ -5,18 +5,28 @@
  */
 package getData;
 
+import bean.Card;
+import bean.Info;
+import bean.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author noah
  */
-public class MyCards extends HttpServlet {
+public class EditCard extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,10 +44,10 @@ public class MyCards extends HttpServlet {
 			out.println("<!DOCTYPE html>");
 			out.println("<html>");
 			out.println("<head>");
-			out.println("<title>Servlet MyCards</title>");
+			out.println("<title>Servlet AddCard</title>");
 			out.println("</head>");
 			out.println("<body>");
-			out.println("<h1>Servlet MyCards at " + request.getContextPath() + "</h1>");
+			out.println("<h1>Servlet AddCard at " + request.getContextPath() + "</h1>");
 			out.println("</body>");
 			out.println("</html>");
 		}
@@ -69,7 +79,61 @@ public class MyCards extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		processRequest(request, response);
+
+		PrintWriter out = response.getWriter();
+
+		String code = request.getParameter("edit_code");
+
+		if (code == null) {
+			throw new ServletException();
+		}
+		
+		HttpSession session = request.getSession();
+
+		User user = (User) session.getAttribute("user");
+
+		if (user == null) {
+			response.sendRedirect("/apollo14/zolink/login.jsp");
+			return;
+		}
+		
+		if (code.equals("new")) {
+			session.setAttribute("card", null);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/edit_card/index.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+
+		CardGetter cardGetter = new CardGetter();
+
+		Card card = null;
+		
+		try {
+			card = cardGetter.getCardByCode(code);
+		} catch (SQLException | ClassNotFoundException ex) {
+			throw new ServletException();
+		}
+
+		if (card == null) {
+			throw new ServletException();
+		}
+
+//		response.setContentType("text/plain;charset=UTF-8");
+//		out.println("code: " + code);
+//		out.println("card code: " + card.getCode());
+//		if (true) return;
+
+		// check if user owns the card
+		if (!card.getUser_id().equals(user.getId())) {
+			response.sendRedirect("/cards/index.jsp");
+			return;
+		}
+
+        session.setAttribute("card", card);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/edit_card/index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

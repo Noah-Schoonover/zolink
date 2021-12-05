@@ -51,7 +51,7 @@ public class UserAuth {
 
 		if (rs.next()) {
 			user = new User();
-			user.setId(rs.getInt("user_id"));
+			user.setId(rs.getString("user_id"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
 
@@ -128,7 +128,7 @@ public class UserAuth {
 			if (rs2.next()) {	// successfully retrieved new user
 				// validate user object
 				user = new User();
-				user.setId(rs2.getInt("user_id"));
+				user.setId(rs2.getString("user_id"));
 				user.setEmail(email);
 				user.setPassword(password);
 			}

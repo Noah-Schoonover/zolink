@@ -15,6 +15,7 @@
 
   <body>
 
+	<%@ page isELIgnored="false" %>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <main>
@@ -26,8 +27,10 @@
               <img class="masthead-brand" width="80px" src="assets/brand/logo-v2-zl.svg" alt="logo">
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link" href="#">My Cards</a>
-                <a class="nav-link" href="account_page/index.html">Account</a>
+				<c:if test="${user != null}">
+					<a class="nav-link" href="/apollo14/zolink/cards/index.jsp">My Cards</a>
+					<a class="nav-link" href="account_page/">Account</a>
+				</c:if>
               </nav>
             </div>
           </header>
@@ -37,28 +40,39 @@
         </header>
 
         <div class="card mx-auto text-center" style="width: 25rem;">
-			<p>name: ${card.card_name}; id: ${card.id}; user: ${card.user_id}; private: ${card.private_card}</p>
+			<div class="text-left text-secondary">
+				<p>${card.card_name}</p>
+			</div>
 			<img class="profile-image" src="card/assets/blank_profile_image.png" alt="Profile Image">
 
 			<div class="card-body">
-			  <h5 class="card-title">${card.name}</h5>
+				<h5 class="card-title">${card.name}</h5>
 
-			  <ul class="list-group list-group-flush">
-				  <li class="list-group-item">555-555-5555</li>
-				  <li class="list-group-item">myles.willis@student.nmt.edu</li>
-				  <li class="list-group-item">Morbi leo risus</li>
-				  <li class="list-group-item">Porta ac consectetur ac</li>
-				  <li class="list-group-item">test: ${testAttr}</li>
+				<ul class="list-group list-group-flush">
+					<c:forEach var="info" items="${card.info}">
+						<li class="list-group-item">${info.data}</li>
+					</c:forEach>
+				</ul>
 
-				  <c:forEach var="info" items="${card.info}">
-					  <li class="list-group-item">${info.data}</li>
-				  </c:forEach>
-			  </ul>
+				<ul style="display: none" class="list-group list-group-flush">
+					<li id="qrCodeContainer" class="list-group-item mx-auto d-block mt-5"></li>
+				</ul>
+
+				<script type="text/javascript">
+					var qrcode = new QRCode(document.getElementById("qrCodeContainer"), {
+						text: "http://zolink.me/" + "${card.code}",
+						width: 250,
+						height: 250,
+						colorDark : "#3e2145",
+						colorLight : "#ffffff",
+						correctLevel : QRCode.CorrectLevel.H
+					});
+				</script>
 
 			</div>
 
 			</div>
-			<a href="#" class="btn btn-primary mt-4">QR Code</a>
+			<a href="/apollo14/zolink/qr/qr.jsp" class="btn btn-primary mt-4">QR Code</a>
 
       </div>
     </main>

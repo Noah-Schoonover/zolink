@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter>
         <filter-name>Dispatcher</filter-name>
         <!-- mandatory -->
@@ -21,6 +21,22 @@
         <servlet-name>ServeCard</servlet-name>
         <servlet-class>getData.ServeCard</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SaveCard</servlet-name>
+        <servlet-class>getData.SaveCard</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveCard</servlet-name>
+        <url-pattern>/SaveCard</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>EditCard</servlet-name>
+        <servlet-class>getData.EditCard</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditCard</servlet-name>
+        <url-pattern>/EditCard</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Authenticate</servlet-name>
         <url-pattern>/Authenticate</url-pattern>
@@ -46,7 +62,6 @@
             30
         </session-timeout>
     </session-config>
-    
     <servlet>
         <servlet-name>Authenticate</servlet-name>
         <servlet-class>authentication.Authenticate</servlet-class>
@@ -63,5 +78,4 @@
         <servlet-name>MyCards</servlet-name>
         <servlet-class>getData.MyCards</servlet-class>
     </servlet>
-
 </web-app>
