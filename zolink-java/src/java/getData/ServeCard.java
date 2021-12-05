@@ -6,7 +6,6 @@
 package getData;
 
 import bean.Card;
-import bean.Info;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -70,7 +69,7 @@ public class ServeCard extends HttpServlet {
 		HttpSession session = request.getSession();
 		String code = (String) session.getAttribute("code");
 
-		CardGetter cardGetter = new CardGetter();
+		CardHelper cardGetter = new CardHelper();
 
 		PrintWriter out = response.getWriter();
 

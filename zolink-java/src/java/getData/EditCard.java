@@ -6,15 +6,10 @@
 package getData;
 
 import bean.Card;
-import bean.Info;
 import bean.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +48,6 @@ public class EditCard extends HttpServlet {
 		}
 	}
 
-	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 	/**
 	 * Handles the HTTP <code>GET</code> method.
 	 *
@@ -105,7 +99,7 @@ public class EditCard extends HttpServlet {
 			return;
 		}
 
-		CardGetter cardGetter = new CardGetter();
+		CardHelper cardGetter = new CardHelper();
 
 		Card card = null;
 		
@@ -144,6 +138,6 @@ public class EditCard extends HttpServlet {
 	@Override
 	public String getServletInfo() {
 		return "Short description";
-	}// </editor-fold>
-
+	}
+	
 }

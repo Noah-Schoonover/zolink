@@ -11,7 +11,7 @@ package authentication;
  */
 import bean.Card;
 import bean.User;
-import getData.CardGetter;
+import getData.CardHelper;
 import java.sql.*;
 
 public class UserAuth {
@@ -63,7 +63,7 @@ public class UserAuth {
 
 			ResultSet rs2 = statement2.executeQuery();
 
-			CardGetter cardGetter = new CardGetter();
+			CardHelper cardGetter = new CardHelper();
 
 			while (rs2.next()) {
 
