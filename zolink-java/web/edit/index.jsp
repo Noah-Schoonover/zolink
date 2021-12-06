@@ -9,7 +9,7 @@
     <!-- Bootstrap core CSS -->
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="edit_card/card.css" rel="stylesheet">
+    <link href="edit/card.css" rel="stylesheet">
 
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   </head>
@@ -27,7 +27,7 @@
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="MyCards">My Cards</a>
-                <a class="nav-link" href="account_page/index.jsp">Account</a>
+                <a class="nav-link" href="account/">Account</a>
               </nav>
             </div>
           </header>
@@ -64,7 +64,7 @@
 											<input type="text" class="w-100" name="${infoNum}" placeholder="Enter some info" value="${info.data}">
 										</div>
 										<div class="col-1 px-0">
-											<a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="edit_card/assets/dash-circle.svg"></a>
+											<a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="edit/assets/dash-circle.svg"></a>
 										</div>
 									</div>
 								</div>

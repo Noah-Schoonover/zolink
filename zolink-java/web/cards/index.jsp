@@ -27,7 +27,7 @@
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="#">My Cards</a>
-                <a class="nav-link" href="account_page/">Account</a>
+                <a class="nav-link" href="account/">Account</a>
               </nav>
             </div>
           </header>

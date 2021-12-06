@@ -32,7 +32,7 @@
               <nav class="nav nav-masthead justify-content-center">
 				<c:if test="${user != null}">
 					<a class="nav-link" href="MyCards">My Cards</a>
-					<a class="nav-link" href="account_page/">Account</a>
+					<a class="nav-link" href="account/">Account</a>
 				</c:if>
               </nav>
             </div>

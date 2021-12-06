@@ -94,7 +94,7 @@ public class EditCard extends HttpServlet {
 		if (code.equals("new")) {
 			session.setAttribute("card", null);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/edit_card/index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/edit/");
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -126,7 +126,7 @@ public class EditCard extends HttpServlet {
 
         session.setAttribute("card", card);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/edit_card/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/edit/");
 		dispatcher.forward(request, response);
 	}
 
