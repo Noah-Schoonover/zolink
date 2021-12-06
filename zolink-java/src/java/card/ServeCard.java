@@ -91,7 +91,6 @@ public class ServeCard extends HttpServlet {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forward_url);
 			dispatcher.forward(request, response);
-			//response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
 
 		} catch (ClassNotFoundException ex) {
 			response.setContentType("text/plain;charset=UTF-8");

@@ -82,9 +82,9 @@ public class Register extends HttpServlet {
 			if (user != null) {
 				HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                forward_url = "/cards/";
+                forward_url = "/apollo14/zolink/MyCards";
 
-				response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
+				response.sendRedirect(forward_url);
 
 			} else {
 				String message = "Email address already in use.";

@@ -84,7 +84,7 @@ public class Authenticate extends HttpServlet {
                 session.setAttribute("user", user);
                 forward_url = "/MyCards";
 
-				response.sendRedirect("https://weave.cs.nmt.edu/apollo14/zolink" + forward_url);
+				response.sendRedirect(forward_url);
 				
 			} else {
 				String message = "Invalid email or password.";
