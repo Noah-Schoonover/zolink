@@ -14,8 +14,6 @@
     <link href="assets/styles/style.css" rel="stylesheet">
     <link href="assets/styles/nav.css" rel="stylesheet">
 
-    <script src="script.js"></script>
-
   </head>
 
   <body>

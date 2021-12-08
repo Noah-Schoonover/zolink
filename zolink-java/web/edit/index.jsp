@@ -11,6 +11,8 @@
     <!-- Custom styles -->
     <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
 
+	<script src="/apollo14/zolink/assets/scripts/edit.js"></script>
+
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   </head>
 
@@ -24,7 +26,7 @@
 			<jsp:param name="activeLink" value="none" />
 		</jsp:include>
 
-		<form action="SaveCard" method="post">
+		<form action="SaveCard" id="formList" method="post">
 			<c:choose>
 				<c:when test="${card != null}">
 					<input type="hidden" name="save_code" value="${card.code}">
@@ -52,7 +54,7 @@
 								<div class="list-group-item">
 									<div class="row">
 										<div class="col-11 px-0">
-											<input type="text" class="w-100" name="${infoNum}" placeholder="Enter some info" value="${info.data}">
+											<input type="text" class="w-100" name="${infoNum}" onkeyup='allocate_field();' placeholder="Enter some info" value="${info.data}">
 										</div>
 										<div class="col-1 px-0">
 											<a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="/apollo14/zolink/assets/images/dash-circle.svg"></a>
@@ -65,7 +67,7 @@
 			
 						<div class="list-group-item">
 							<div class="row">
-								<input class="w-100" type="text" name="${infoNum}" placeholder="Enter some info">
+								<input class="w-100" onkeyup='allocate_field();' type="text" name="${infoNum}" placeholder="Enter some info">
 							</div>
 						</div>
 						
