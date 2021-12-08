@@ -16,23 +16,6 @@
     <!-- Bootstrap core CSS -->
 	<link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-
     <!-- Custom styles for this template -->
     <link href="/apollo14/zolink/assets/styles/login.css" rel="stylesheet">
   </head>
@@ -40,7 +23,9 @@
 
 <main class="form-signin">
   <form action="/apollo14/zolink/Authenticate" method="post">
-    <img class="mb-4" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="" width="100">
+    <a class="text-white text-decoration-none" href="/apollo14/zolink/">
+		<img class="mb-4" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="" width="100">
+	</a>
 	<c:choose>
 		<c:when test="${user == null}">
 			<h1 class="h3 mb-3 fw-normal text-white">Please sign in</h1>

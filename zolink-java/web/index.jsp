@@ -12,6 +12,7 @@
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
     <link href="assets/styles/style.css" rel="stylesheet">
+    <link href="assets/styles/nav.css" rel="stylesheet">
 
     <script src="script.js"></script>
 
@@ -28,13 +29,22 @@
             </a>
             <h1 class="text-white">Zolink</h3>
 
-          <form class="form-inline">
+			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+			<c:choose>
+				<c:when test="${user == null}">
+					<form class="form-inline">
+					  <button class="btn btn-primary btn-lg" onclick="location.href='register/'" type="button">Register</button>
+					  <button class="btn btn-primary btn-lg" onclick="location.href='login/'" type="button">Login</button>
+					</form>
+				</c:when>
+				<c:otherwise>
+					<nav class="nav nav-masthead justify-content-center">
+						<a class="nav-link" href="/apollo14/zolink/MyCards">My Cards</a>
+						<a class="nav-link" href="/apollo14/zolink/account/">Account</a>
+					</nav>
+				</c:otherwise>
+			</c:choose>
 
-            <button class="btn btn-primary btn-lg" onclick="location.href='register/'" type="button">Register</button>
-
-            <button class="btn btn-primary btn-lg" onclick="location.href='login/'" type="button">Login</button>
-
-          </form>
         </nav>
 
         </header>

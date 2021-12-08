@@ -20,18 +20,9 @@
     <main>
       <div class="container py-4">
 
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5">
-          <header class="masthead mb-auto">
-            <div class="inner">
-              <img class="masthead-brand" width="80px" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="logo">
-              <h3 class="masthead-brand">Zolink</h3>
-              <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">My Cards</a>
-                <a class="nav-link" href="account/">Account</a>
-              </nav>
-            </div>
-          </header>
-        </div>
+        <jsp:include page='../assets/components/navbar.jsp'>
+			<jsp:param name="activeLink" value="My Cards" />
+		</jsp:include>
 
 		<c:if test="${user != null}">
 			<c:forEach var="card" items="${user.cards}">
