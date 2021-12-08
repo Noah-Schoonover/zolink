@@ -115,7 +115,8 @@ body {
 .card, .add-card {
   display: flex;
   height: 100px;
-  width: 400px;
+  width: 100%;
+  max-width: 25rem;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: -0.3rem 0 0.5rem #000;

@@ -38,7 +38,7 @@
 				</c:otherwise>
 			</c:choose>
 
-			<div class="card mx-auto text-center" style="width: 25rem;">
+			<div class="card mx-auto text-center">
 				<input name="card_name" class="mx-4 mt-1" type="text" placeholder="Card Name" value="${card.card_name}" required>
 				<img class="profile-image" src="/apollo14/zolink/assets/images/blank_profile_image.png" alt="Profile Image">
 

@@ -26,7 +26,7 @@
 
 		<c:if test="${user != null}">
 			<c:forEach var="card" items="${user.cards}">
-					<div class="card mx-auto" style="width: 25rem;">
+					<div class="card mx-auto">
 						<div class="row row-no-gutters" style="height: 130px">
 							<div class="col-10 pr-0">
 								<a href="/apollo14/zolink/${card.code}">

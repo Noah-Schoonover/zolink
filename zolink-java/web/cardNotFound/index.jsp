@@ -25,7 +25,7 @@
 			<jsp:param name="activeLink" value="none" />
 		</jsp:include>
 
-        <div class="card mx-auto text-center" style="width: 25rem;">
+        <div class="card mx-auto text-center">
 			<div class="text-left text-secondary">
 				<p></p>
 			</div>
