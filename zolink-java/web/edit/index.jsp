@@ -26,7 +26,7 @@
 			<jsp:param name="activeLink" value="none" />
 		</jsp:include>
 
-		<form action="SaveCard" id="formList" method="post">
+		<form autocomplete="off" action="SaveCard" method="post">
 			<c:choose>
 				<c:when test="${card != null}">
 					<input type="hidden" name="save_code" value="${card.code}">
@@ -44,7 +44,7 @@
 
 
 				<div class="card-body">
-					<div class="list-group list-group-flush">
+					<div id="zolink-list-group" class="list-group list-group-flush">
 						<h5 class="card-title">
 							<input class="w-100" name="name" type="text" placeholder="Name" value="${card.name}" required>
 						</h5>
@@ -53,11 +53,11 @@
 							<c:forEach var="info" items="${card.info}">
 								<div class="list-group-item">
 									<div class="row">
-										<div class="col-11 px-0">
-											<input type="text" class="w-100" name="${infoNum}" onkeyup='allocate_field();' placeholder="Enter some info" value="${info.data}">
+										<div id="inputColumn" class="col-11 px-0">
+											<input type="text" class="w-100 zolink-info-field" name="${infoNum}" onkeyup='allocate_field();' placeholder="Enter some info" value="${info.data}">
 										</div>
-										<div class="col-1 px-0">
-											<a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="/apollo14/zolink/assets/images/dash-circle.svg"></a>
+										<div id="minusColumn" class="col-1 px-0">
+											<a href="#"><img onclick="remove_field(this); return false;" width="25px" style="margin-left: 10px; margin-top: -5px" src="/apollo14/zolink/assets/images/dash-circle.svg"></a>
 										</div>
 									</div>
 								</div>
@@ -67,7 +67,11 @@
 			
 						<div class="list-group-item">
 							<div class="row">
-								<input class="w-100" onkeyup='allocate_field();' type="text" name="${infoNum}" placeholder="Enter some info">
+								<div id="inputColumn" class="px-0">
+									<input class="w-100 zolink-info-field" onkeyup='allocate_field();' type="text" name="${infoNum}" placeholder="Enter some info">
+								</div>
+								<div id="minusColumn" class="px-0">
+								</div>
 							</div>
 						</div>
 						

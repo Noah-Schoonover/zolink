@@ -1,74 +1,75 @@
 function allocate_field() {
     //console.log(parseInt(id) + 1);
-    var forms = document.getElementById("formList").children;
+    var forms = document.getElementsByClassName("zolink-info-field");
     var number_of_forms = forms.length;
 //    var incremented_id = (parseInt(previous_form_id) + 1).toString();
 
     // Create the last field (formatted without delete button)
     function create_last_field() {
 
-        var li = document.createElement("LI");
-        li.className = "list-group-item";
-        // Assign the new field's id to its index after it will be appended as child.
-        li.id = (number_of_forms).toString();
+        var list_group_item = document.createElement("div");
+        list_group_item.className = "list-group-item";
 
-        var input = document.createElement("input");
+		var row = document.createElement("div");
+        row.className = "row";
+		list_group_item.appendChild(row);
+
+		var col_11 = document.createElement("div");
+        col_11.className = "px-0";
+		col_11.id = "inputColumn";
+		row.appendChild(col_11);
+
+		var input = document.createElement("input");
         input.type = "text";
-        input.placeholder = "Enter some info";
-        input.size = "24";
+        input.className = "w-100 zolink-info-field";
+		input.name = (parseInt(forms[number_of_forms -1].name) + 1).toString();
         input.addEventListener("keyup", allocate_field);
+        input.placeholder = "Enter some info";
+		col_11.appendChild(input);
 
-        li.appendChild(input);
+		var col_1 = document.createElement("div");
+        col_1.className = "px-0";
+		col_1.id = "minusColumn";
+		row.appendChild(col_1);
 
-        document.getElementById("formList").appendChild(li);
+        document.getElementById("zolink-list-group").appendChild(list_group_item);
     }
 
     // Reformat the previous form to include a delete button
     function reformat_previous_form() {
 
-        //IDEA: should this function call remove_empty_fields?
-        //
-        //store previous value
-        var field_value = forms[number_of_forms - 2].firstElementChild.value;
-
-        //create new element
-        var li = document.createElement("LI");
-        li.className = "list-group-item";
-        li.id = forms[number_of_forms - 2].id;
-
-        var input = document.createElement("input");
-        input.type = "text";
-
-        input.addEventListener("keyup", allocate_field);
-        input.value = field_value;
-
         var a = document.createElement("a");
         a.href = "#";
 
         var img = new Image();
-        img.src = "assets/dash-circle.svg";
+        img.src = "/apollo14/zolink/assets/images/dash-circle.svg";
         img.width = "25";
         img.style = "margin-left: 10px; margin-top: -5px";
-        img.addEventListener("click", function(){
-            var parent = this.parentElement;
-            remove_field(parent.parentElement);
-        });
-
+        img.onclick = function() {
+			remove_field(this);
+			return false;
+		}
 
         a.appendChild(img);
-        li.appendChild(input);
-        li.appendChild(a);
 
+        previous_form = forms[number_of_forms - 1];
+		var inputColumn = previous_form.closest("#inputColumn");
+		inputColumn.className = "col-11 px-0";
 
-        previous_form = forms[number_of_forms - 2];
-        previous_form.parentElement.replaceChild(li, previous_form);
+		var minusColumn = inputColumn.nextElementSibling;
+		minusColumn.className = "col-1 px-0";
+		minusColumn.appendChild(a);
+
     }
 
+	console.log(forms);
+	console.log(number_of_forms);
+
     // If the last form is not empty, append another form as a child to formList
-    if(forms[number_of_forms - 1].firstElementChild.value !== "") {
+    if(forms[number_of_forms - 1].value !== "") {
 
         // If the previous form not default one including delete button, update
-        if(number_of_forms - 1 >= 2){
+        if(number_of_forms >= 1){
             reformat_previous_form();
         }
 
@@ -81,7 +82,7 @@ function remove_empty_fields(){
     var number_of_forms = forms.length;
 
     for (var i = 0; i < number_of_forms -1 ; i++) {
-        if(forms[i].firstElementChild.value === "") {
+        if(forms[i].value === "") {
             forms[i].remove();
 
             // Recursive call as temporary fix;
@@ -94,5 +95,6 @@ function remove_empty_fields(){
 
 // Create function to remove feild upon button press
 function remove_field(element){
-    element.parentElement.removeChild(element);
+    element.closest(".list-group-item").remove();
+	return false;
 }
