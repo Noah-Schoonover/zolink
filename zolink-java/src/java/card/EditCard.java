@@ -87,14 +87,14 @@ public class EditCard extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 
 		if (user == null) {
-			response.sendRedirect("/apollo14/zolink/login.jsp");
+			response.sendRedirect("/apollo14/zolink/login/");
 			return;
 		}
 		
 		if (code.equals("new")) {
 			session.setAttribute("card", null);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/edit/");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("edit/");
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -126,7 +126,7 @@ public class EditCard extends HttpServlet {
 
         session.setAttribute("card", card);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/edit/");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("edit/");
 		dispatcher.forward(request, response);
 	}
 

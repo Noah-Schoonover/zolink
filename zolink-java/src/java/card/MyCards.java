@@ -35,11 +35,12 @@ public class MyCards extends HttpServlet {
         User user = (User) session.getAttribute("user");
 
 		if (user == null) {
-			response.sendRedirect("/apollo14/zolink/login.jsp");
+			session.setAttribute("message", "You must login to view this page.");
+			response.sendRedirect("/apollo14/zolink/login/");
 			return;
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cards/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cards/");
 		dispatcher.forward(request, response);
 
 	}

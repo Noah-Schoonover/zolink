@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink - Edit Card</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="edit/card.css" rel="stylesheet">
+    <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
 
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   </head>
@@ -23,7 +23,7 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5">
           <header class="masthead mb-auto">
             <div class="inner">
-              <img class="masthead-brand" width="80px" src="assets/brand/logo-v2-zl.svg" alt="logo">
+              <img class="masthead-brand" width="80px" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="logo">
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="MyCards">My Cards</a>
@@ -47,7 +47,7 @@
 
 			<div class="card mx-auto text-center" style="width: 25rem;">
 				<input name="card_name" class="mx-4 mt-1" type="text" placeholder="Card Name" value="${card.card_name}" required>
-				<img class="profile-image" src="cards/assets/blank_profile_image.png" alt="Profile Image">
+				<img class="profile-image" src="/apollo14/zolink/assets/images/blank_profile_image.png" alt="Profile Image">
 
 
 				<div class="card-body">
@@ -64,7 +64,7 @@
 											<input type="text" class="w-100" name="${infoNum}" placeholder="Enter some info" value="${info.data}">
 										</div>
 										<div class="col-1 px-0">
-											<a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="edit/assets/dash-circle.svg"></a>
+											<a href="#"><img width="25px" style="margin-left: 10px; margin-top: -5px" src="/apollo14/zolink/assets/images/dash-circle.svg"></a>
 										</div>
 									</div>
 								</div>

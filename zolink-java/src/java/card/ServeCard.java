@@ -83,7 +83,7 @@ public class ServeCard extends HttpServlet {
 			
 				session.setAttribute("card", card);
 				session.setAttribute("testAttr", "testing attribute");
-				forward_url = "/card/card.jsp";
+				forward_url = "/card/";
 
 			} else {
 				forward_url = "/cardNotFound/";

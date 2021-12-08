@@ -77,12 +77,12 @@ public class Authenticate extends HttpServlet {
 		try {
 
 			User user = userAuth.authenticate(email, password);
-			String forward_url = "/login.jsp";
+			String forward_url = "login/";
 
 			if (user != null) {
 				HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                forward_url = "/MyCards";
+                forward_url = "/apollo14/zolink/MyCards";
 
 				response.sendRedirect(forward_url);
 				

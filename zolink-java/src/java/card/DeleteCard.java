@@ -88,7 +88,7 @@ public class DeleteCard extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 
 		if (user == null) {
-			response.sendRedirect("/apollo14/zolink/login.jsp");
+			response.sendRedirect("/apollo14/zolink/login/");
 			return;
 		}
 

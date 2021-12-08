@@ -77,7 +77,7 @@ public class Register extends HttpServlet {
 		try {
 
 			User user = userAuth.register(email, password);
-			String forward_url = "/register.jsp";
+			String forward_url = "/register/";
 
 			if (user != null) {
 				HttpSession session = request.getSession();

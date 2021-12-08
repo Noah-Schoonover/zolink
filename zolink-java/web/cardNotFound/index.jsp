@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink Card</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="card/card.css" rel="stylesheet">
-
-	<script src="card/script.js"></script>
-	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
 
   </head>
 
@@ -27,7 +24,7 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5">
           <header class="masthead mb-auto">
             <div class="inner">
-              <img class="masthead-brand" width="80px" src="assets/brand/logo-v2-zl.svg" alt="logo">
+              <img class="masthead-brand" width="80px" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="logo">
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
 				<c:if test="${user != null}">
@@ -46,7 +43,7 @@
 			<div class="text-left text-secondary">
 				<p></p>
 			</div>
-			<img class="profile-image" src="cardNotFound/assets/exclamation-circle.svg" alt="Card Not Found">
+			<img class="profile-image" src="/apollo14/zolink/assets/images/exclamation-circle.svg" alt="Card Not Found">
 
 			<div class="card-body">
 				<div class="my-5"></div>

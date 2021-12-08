@@ -109,7 +109,7 @@ body {
 
 .card, .add-card {
   display: flex;
-  height: 650px;
+  min-height: 580px;
   width: 500px;
   background-color: #ffffff;
   border-radius: 10px;

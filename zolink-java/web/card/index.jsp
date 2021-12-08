@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink Card</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="card/card.css" rel="stylesheet">
+    <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
 
-	<script src="card/script.js"></script>
+	<script src="/apollo14/zolink/assets/scripts/card.js"></script>
 	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
   </head>
@@ -27,7 +27,7 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5">
           <header class="masthead mb-auto">
             <div class="inner">
-              <img class="masthead-brand" width="80px" src="assets/brand/logo-v2-zl.svg" alt="logo">
+              <img class="masthead-brand" width="80px" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="logo">
               <h3 class="masthead-brand">Zolink</h3>
               <nav class="nav nav-masthead justify-content-center">
 				<c:if test="${user != null}">
@@ -44,16 +44,16 @@
 
         <div class="card mx-auto text-center" style="width: 25rem;">
 			<div class="text-left text-secondary">
-				<p>${card.card_name}</p>
+				<p><c:out value="${card.card_name}"/></p>
 			</div>
-			<img class="profile-image" src="card/assets/blank_profile_image.png" alt="Profile Image">
+			<img class="profile-image" src="/apollo14/zolink/assets/images/blank_profile_image.png" alt="Profile Image">
 
 			<div class="card-body">
-				<h5 class="card-title">${card.name}</h5>
+				<h5 class="card-title"><c:out value="${card.name}"/></h5>
 
 				<ul id="infoUL" class="list-group list-group-flush">
 					<c:forEach var="info" items="${card.info}">
-						<li class="list-group-item">${info.data}</li>
+						<li class="list-group-item"><c:out value="${info.data}"/></li>
 					</c:forEach>
 				</ul>
 
