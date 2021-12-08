@@ -49,7 +49,7 @@ public class Dispatcher implements Filter {
 				uri = new URI(url);
 				String path = uri.getPath();
 				String code = path.substring(path.lastIndexOf('/') + 1);
-				Matcher m = pattern.matcher(code);
+				Matcher m = pattern.matcher(code.toLowerCase());
 
 				if (m.matches()) {
 
