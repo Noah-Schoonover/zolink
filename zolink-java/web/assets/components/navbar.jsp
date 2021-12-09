@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mb-5 text-center">
 	<header class="masthead mb-auto">
 		<div class="inner">
 			<a class="text-white text-decoration-none" href="/apollo14/zolink/">
