@@ -78,7 +78,7 @@
           <div class="col-md-6">
             <div class="h-100 p-5 bg-light border rounded-3">
               <h2>Examples</h2>
-              
+			  <a href="https://docs.google.com/presentation/d/1Me4xjeL-XBRkJaUgWIclAJZR7e82Vj7NvqZE5ANJElU/edit?usp=sharing">Presentation Slides</a>
               <p></p>
             </div>
           </div>
