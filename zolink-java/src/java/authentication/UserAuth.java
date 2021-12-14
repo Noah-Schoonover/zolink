@@ -21,21 +21,11 @@ public class UserAuth {
 		
 		String domain, driver, dbURL, dbUsername, dbPassword;
 
-		boolean LOCAL = false;
-		if (LOCAL) {
-			domain = "*";
-			driver = "com.mysql.cj.jdbc.Driver";
-			dbURL = "jdbc:mysql://localhost:3306/zolink";
-			dbUsername = "root";
-			dbPassword = "Jinkooo!000";
-		} else {
-			domain = "https://www.cs.nmt.edu";
-			driver = "org.mariadb.jdbc.Driver";
-			dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
-			dbUsername = "apollo14";
-			dbPassword = "DSLgang";
-		}
-
+		domain = "*";
+		driver = "com.mysql.cj.jdbc.Driver";
+		dbURL = "jdbc:mysql://localhost:3306/zolink";
+		dbUsername = "zolink";
+		dbPassword = "Jinkooo!000";
 
 		Class.forName(driver);
 		Connection connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
@@ -87,20 +77,11 @@ public class UserAuth {
 
 		String domain, driver, dbURL, dbUsername, dbPassword;
 
-		boolean LOCAL = false;
-		if (LOCAL) {
-			domain = "*";
-			driver = "com.mysql.cj.jdbc.Driver";
-			dbURL = "jdbc:mysql://localhost:3306/zolink";
-			dbUsername = "root";
-			dbPassword = "Jinkooo!000";
-		} else {
-			domain = "https://www.cs.nmt.edu";
-			driver = "org.mariadb.jdbc.Driver";
-			dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
-			dbUsername = "apollo14";
-			dbPassword = "DSLgang";
-		}
+		domain = "*";
+		driver = "com.mysql.cj.jdbc.Driver";
+		dbURL = "jdbc:mysql://localhost:3306/zolink";
+		dbUsername = "zolink";
+		dbPassword = "Jinkooo!000";
 
 
 		Class.forName(driver);

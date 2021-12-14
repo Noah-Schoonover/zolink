@@ -82,7 +82,7 @@ public class Register extends HttpServlet {
 			if (user != null) {
 				HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                forward_url = "/apollo14/zolink/MyCards";
+                forward_url = "/MyCards";
 
 				response.sendRedirect(forward_url);
 

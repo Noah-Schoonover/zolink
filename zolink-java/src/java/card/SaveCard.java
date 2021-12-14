@@ -98,7 +98,7 @@ public class SaveCard extends HttpServlet {
         User user = (User) session.getAttribute("user");
 
 		if (user == null) {
-			response.sendRedirect("/apollo14/zolink/login/");
+			response.sendRedirect("/login/");
 			return;
 		}
 
@@ -175,7 +175,7 @@ public class SaveCard extends HttpServlet {
 		user.getCards().add(card);
 		session.setAttribute("user", user);
 
-		response.sendRedirect("/apollo14/zolink/" + card.getCode());
+		response.sendRedirect("/" + card.getCode());
 
 	}
 

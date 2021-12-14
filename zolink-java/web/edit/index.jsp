@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink - Edit Card</title>
-    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
+    <link href="/assets/styles/card.css" rel="stylesheet">
 
-	<script src="/apollo14/zolink/assets/scripts/edit.js"></script>
+	<script src="/assets/scripts/edit.js"></script>
 
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   </head>
@@ -40,7 +40,7 @@
 
 			<div class="card mx-auto text-center">
 				<input name="card_name" class="mx-4 mt-1" type="text" placeholder="Card Name" value="${card.card_name}" required>
-				<img class="profile-image" src="/apollo14/zolink/assets/images/blank_profile_image.png" alt="Profile Image">
+				<img class="profile-image" src="/assets/images/blank_profile_image.png" alt="Profile Image">
 
 
 				<div class="card-body">
@@ -57,7 +57,7 @@
 											<input type="text" class="w-100 zolink-info-field" name="${infoNum}" onkeyup='allocate_field();' placeholder="Enter some info" value="${info.data}">
 										</div>
 										<div id="minusColumn" class="col-1 px-0">
-											<a href="#"><img onclick="remove_field(this); return false;" width="25px" style="margin-left: 10px; margin-top: -5px" src="/apollo14/zolink/assets/images/dash-circle.svg"></a>
+											<a href="#"><img onclick="remove_field(this); return false;" width="25px" style="margin-left: 10px; margin-top: -5px" src="/assets/images/dash-circle.svg"></a>
 										</div>
 									</div>
 								</div>

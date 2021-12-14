@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink Card</title>
-    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
+    <link href="/assets/styles/card.css" rel="stylesheet">
 
   </head>
 
@@ -29,7 +29,7 @@
 			<div class="text-left text-secondary">
 				<p></p>
 			</div>
-			<img class="profile-image" src="/apollo14/zolink/assets/images/exclamation-circle.svg" alt="Card Not Found">
+			<img class="profile-image" src="/assets/images/exclamation-circle.svg" alt="Card Not Found">
 
 			<div class="card-body">
 				<div class="my-5"></div>

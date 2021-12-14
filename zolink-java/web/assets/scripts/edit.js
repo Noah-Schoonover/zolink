@@ -42,7 +42,7 @@ function allocate_field() {
         a.href = "#";
 
         var img = new Image();
-        img.src = "/apollo14/zolink/assets/images/dash-circle.svg";
+        img.src = "/assets/images/dash-circle.svg";
         img.width = "25";
         img.style = "margin-left: 10px; margin-top: -5px";
         img.onclick = function() {

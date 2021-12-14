@@ -87,7 +87,7 @@ public class EditCard extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 
 		if (user == null) {
-			response.sendRedirect("/apollo14/zolink/login/");
+			response.sendRedirect("/login/");
 			return;
 		}
 		
@@ -120,7 +120,7 @@ public class EditCard extends HttpServlet {
 
 		// check if user owns the card
 		if (!card.getUser_id().equals(user.getId())) {
-			response.sendRedirect("/apollo14/zolink/MyCards");
+			response.sendRedirect("/MyCards");
 			return;
 		}
 

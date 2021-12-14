@@ -37,8 +37,8 @@
 				</c:when>
 				<c:otherwise>
 					<nav class="nav nav-masthead justify-content-center">
-						<a class="nav-link" href="/apollo14/zolink/MyCards">My Cards</a>
-						<a class="nav-link" href="/apollo14/zolink/account/">Account</a>
+						<a class="nav-link" href="/MyCards">My Cards</a>
+						<a class="nav-link" href="/account/">Account</a>
 					</nav>
 				</c:otherwise>
 			</c:choose>

@@ -88,7 +88,7 @@ public class DeleteCard extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 
 		if (user == null) {
-			response.sendRedirect("/apollo14/zolink/login/");
+			response.sendRedirect("/login/");
 			return;
 		}
 
@@ -116,7 +116,7 @@ public class DeleteCard extends HttpServlet {
 
 		// check if user owns the card
 		if (!card.getUser_id().equals(user.getId())) {
-			response.sendRedirect("/apollo14/zolink/MyCards");
+			response.sendRedirect("/MyCards");
 			return;
 		}
 
@@ -139,7 +139,7 @@ public class DeleteCard extends HttpServlet {
 
 		session.setAttribute("user", user);
 
-		response.sendRedirect("/apollo14/zolink/MyCards");
+		response.sendRedirect("/MyCards");
 	}
 
 	/**

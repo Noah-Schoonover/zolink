@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <title>Account</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
 
     <!-- Bootstrap core CSS -->
-    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/apollo14/zolink/assets/styles/account.css" rel="stylesheet">
+    <link href="/assets/styles/account.css" rel="stylesheet">
   </head>
 
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -44,7 +44,7 @@
 						  </div>
 
 						  <form class="form-inline mt-5 pt-5">
-							  <button class="btn btn-primary btn-lg" onclick="location.href='/apollo14/zolink/Logout'" type="button">Logout</button>
+							  <button class="btn btn-primary btn-lg" onclick="location.href='/Logout'" type="button">Logout</button>
 						  </form>
 
 					  </c:when>
@@ -52,9 +52,9 @@
 						  <h3 class="mb-5">You are not logged in.</h3>
 						  <form class="form-inline">
 
-							  <button class="btn btn-primary btn-lg" onclick="location.href='/apollo14/zolink/register/'" type="button">Register</button>
+							  <button class="btn btn-primary btn-lg" onclick="location.href='/register/'" type="button">Register</button>
 
-							  <button class="btn btn-primary btn-lg" onclick="location.href='/apollo14/zolink/login/'" type="button">Login</button>
+							  <button class="btn btn-primary btn-lg" onclick="location.href='/login/'" type="button">Login</button>
 
 						  </form>
 					  </c:otherwise>

@@ -21,11 +21,11 @@ public class CardHelper {
 
 		String domain, driver, dbURL, dbUsername, dbPassword;
 
-		domain = "https://www.cs.nmt.edu";
-		driver = "org.mariadb.jdbc.Driver";
-		dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
-		dbUsername = "apollo14";
-		dbPassword = "DSLgang";
+		domain = "*";
+		driver = "com.mysql.cj.jdbc.Driver";
+		dbURL = "jdbc:mysql://localhost:3306/zolink";
+		dbUsername = "zolink";
+		dbPassword = "Jinkooo!000";
 
 		// establish a connection
 		Class.forName(driver);
@@ -102,10 +102,10 @@ public class CardHelper {
 		
 		String driver, dbURL, dbUsername, dbPassword;
 
-		driver = "org.mariadb.jdbc.Driver";
-		dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
-		dbUsername = "apollo14";
-		dbPassword = "DSLgang";
+		driver = "com.mysql.cj.jdbc.Driver";
+		dbURL = "jdbc:mysql://localhost:3306/zolink";
+		dbUsername = "zolink";
+		dbPassword = "Jinkooo!000";
 		
 		// establish a connection
 		Class.forName(driver);
@@ -210,10 +210,10 @@ public class CardHelper {
 
 		String driver, dbURL, dbUsername, dbPassword;
 
-		driver = "org.mariadb.jdbc.Driver";
-		dbURL = "jdbc:mariadb://localhost:3306/apollo14_zolink";
-		dbUsername = "apollo14";
-		dbPassword = "DSLgang";
+		driver = "com.mysql.cj.jdbc.Driver";
+		dbURL = "jdbc:mysql://localhost:3306/zolink";
+		dbUsername = "zolink";
+		dbPassword = "Jinkooo!000";
 
 		// establish a connection
 		Class.forName(driver);

@@ -9,22 +9,22 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Signin - Zolink</title>
-    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
-	<link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/apollo14/zolink/assets/styles/login.css" rel="stylesheet">
+    <link href="/assets/styles/login.css" rel="stylesheet">
   </head>
   <body class="text-center">
 
 <main class="form-signin">
-  <form action="/apollo14/zolink/Authenticate" method="post">
-    <a class="text-white text-decoration-none" href="/apollo14/zolink/">
-		<img class="mb-4" src="/apollo14/zolink/assets/brand/logo-v2-zl.svg" alt="" width="100">
+  <form action="/Authenticate" method="post">
+    <a class="text-white text-decoration-none" href="/">
+		<img class="mb-4" src="/assets/brand/logo-v2-zl.svg" alt="" width="100">
 	</a>
 	<c:choose>
 		<c:when test="${user == null}">
@@ -53,17 +53,17 @@
 			<p class="mt-3 text-white">
 				Don't have an account?
 				<br>
-				Click <a class="text-decoration-none" href="/apollo14/zolink/register/">here</a> to register.
+				Click <a class="text-decoration-none" href="/register/">here</a> to register.
 			</p>
 		</c:when>
 		<c:otherwise>
 			<h4 class="h4 mb-3 fw-normal text-white">You are already signed in.</h4>
 			<button type="button" class="w-100 btn btn-lg btn-primary"
-					onclick="window.location.href='/apollo14/zolink/MyCards';">
+					onclick="window.location.href='/MyCards';">
 				Go to my cards
 			</button>
 			<button type="button" class="w-100 btn btn-lg btn-danger mt-4"
-					onclick="window.location.href='/apollo14/zolink/Logout';">
+					onclick="window.location.href='/Logout';">
 				Logout
 			</button>
 		</c:otherwise>

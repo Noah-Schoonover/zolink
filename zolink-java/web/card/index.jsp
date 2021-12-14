@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zolink Card</title>
-    <link rel="shortcut icon" type="image/png" href="/apollo14/zolink/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="/apollo14/zolink/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link href="/apollo14/zolink/assets/styles/card.css" rel="stylesheet">
+    <link href="/assets/styles/card.css" rel="stylesheet">
 
-	<script src="/apollo14/zolink/assets/scripts/card.js"></script>
+	<script src="/assets/scripts/card.js"></script>
 	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
   </head>
@@ -32,7 +32,7 @@
 			<div class="text-left text-secondary">
 				<p><c:out value="${card.card_name}"/></p>
 			</div>
-			<img class="profile-image" src="/apollo14/zolink/assets/images/blank_profile_image.png" alt="Profile Image">
+			<img class="profile-image" src="/assets/images/blank_profile_image.png" alt="Profile Image">
 
 			<div class="card-body">
 				<h5 class="card-title"><c:out value="${card.name}"/></h5>

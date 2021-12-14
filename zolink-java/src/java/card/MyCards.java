@@ -36,7 +36,7 @@ public class MyCards extends HttpServlet {
 
 		if (user == null) {
 			session.setAttribute("message", "You must login to view this page.");
-			response.sendRedirect("/apollo14/zolink/login/");
+			response.sendRedirect("/login/");
 			return;
 		}
 
